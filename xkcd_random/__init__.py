@@ -1125,7 +1125,4 @@ def main(arg_list: list[str] | None = None) -> int | str:
 
 
 if __name__ == "__main__":
-    #    print(_test_generator())
-    print(_test(5))
-    print(Random().randint(0, 100))
     print(main())

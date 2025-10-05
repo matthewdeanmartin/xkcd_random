@@ -1,5 +1,5 @@
 [project]
-name = "xkcd-random"
+name = "xkcd-random-four"
 version = "0.1.0"
 authors = [
     { name = "Matthew Dean Martin", email = "matthewdeanmartin@gmail.com" },
@@ -82,7 +82,8 @@ dev = [
 
 
 [project.scripts]
-xkcd-random = "xkcd_random.__main__:main"
+xkcd-random = "xkcd_random.__init__:main"
+xkcd_random = "xkcd_random.__init__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -99,7 +100,7 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["xkcd-random"]
+packages = ["xkcd-random-four"]
 include = [
     "xkcd_random/**/*.py",
     "xkcd_random/py.typed",
