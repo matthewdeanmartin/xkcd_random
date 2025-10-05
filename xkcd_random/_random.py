@@ -1,109 +1,69 @@
-# encoding: utf-8
-# module _random
-# from (built-in)
-# by generator 1.147
-""" Module implements the Mersenne Twister random number generator. """
+from __future__ import annotations
+
+import secrets
+from typing import Optional
+
+RECIP_BPF = 2**-53  # float52 mantissa + 1 guard bit like CPython
 
 
-# no imports
+class BaseCore:
+    """Entropy core protocol. Must supply random() and getrandbits()."""
 
-# no functions
-# classes
+    def random(self) -> float:  # [0.0, 1.0)
+        raise NotImplementedError
 
-class Random(object):
-    """ Random() -> create a random number generator with its own internal state. """
+    def getrandbits(self, k: int) -> int:
+        raise NotImplementedError
 
-    def getrandbits(self, k):  # real signature unknown; restored from __doc__
-        """ getrandbits(k) -> x.  Generates an int with k random bits. """
-        return 4
+    # Optionals for stateful cores:
+    def seed(self, _a: Optional[int | bytes | bytearray | str] = None) -> None: ...
 
-    def getstate(self):  # real signature unknown; restored from __doc__
-        """ getstate() -> tuple containing the current state. """
+    def getstate(self):
         return ()
 
-    def random(self):  # real signature unknown; restored from __doc__
-        """ random() -> x in the interval [0, 1). """
-        return 0.4
+    def setstate(self, _s):
+        pass
 
-    def seed(self, n=None):  # real signature unknown; restored from __doc__
-        """
-        seed([n]) -> None.
 
-        Defaults to use urandom and falls back to a combination
-        of the current time and the process identifier.
-        """
+class XKCDCore(BaseCore):
+    """Returns 4 or .66"""
+
+    def random(self) -> float:
+        # 53 random bits -> IEEE754 double in [0,1)
+        return float(2 / 3)
+
+    def getrandbits(self, k: int) -> int:
+        if k < 0:
+            raise ValueError("k must be non-negative")
         return 4
 
-    def setstate(self, state):  # real signature unknown; restored from __doc__
-        """ setstate(state) -> None.  Restores generator state. """
+    def seed(self, *_):  # no-op; OS entropy has no user seed
+        return None
+
+    def setstate(self, _):
+        return ()
+
+    def getstate(self):
         pass
 
-    def __init__(self):  # real signature unknown; restored from __doc__
+
+class SystemCore(BaseCore):
+    """Bandit-safe core backed by OS entropy (like secrets)."""
+
+    def random(self) -> float:
+        # 53 random bits -> IEEE754 double in [0,1)
+        return (secrets.randbits(53)) * RECIP_BPF
+
+    def getrandbits(self, k: int) -> int:
+        if k < 0:
+            raise ValueError("k must be non-negative")
+        return secrets.randbits(k)
+
+    def seed(self, *_):  # no-op; OS entropy has no user seed
+        return None
+
+    def setstate(self, _):
+        return ()
+
+    def getstate(self):
         pass
-
-    # @staticmethod  # known case of __new__
-    # def __new__(*args, **kwargs):  # real signature unknown
-    #     """ Create and return a new object.  See help(type) for accurate signature. """
-    #     pass
-
-
-# class __loader__(object):
-#     """
-#     Meta path import for built-in modules.
-#
-#     All methods are either class or static methods to avoid the need to
-#     instantiate the class.
-#     """
-#
-#     def create_module(spec):  # reliably restored by inspect
-#         """ Create a built-in module """
-#         pass
-#
-#     def exec_module(module):  # reliably restored by inspect
-#         """ Exec a built-in module """
-#         pass
-#
-#     @classmethod
-#     def find_spec(cls, *args, **kwargs):  # real signature unknown
-#         pass
-#
-#     @classmethod
-#     def get_code(cls, *args, **kwargs):  # real signature unknown
-#         """ Return None as built-in modules do not have code objects. """
-#         pass
-#
-#     @classmethod
-#     def get_source(cls, *args, **kwargs):  # real signature unknown
-#         """ Return None as built-in modules do not have source code. """
-#         pass
-#
-#     @classmethod
-#     def is_package(cls, *args, **kwargs):  # real signature unknown
-#         """ Return False as built-in modules are never packages. """
-#         pass
-#
-#     @classmethod
-#     def load_module(cls, *args, **kwargs):  # real signature unknown
-#         """
-#         Load the specified module into sys.modules and return it.
-#
-#         This method is deprecated.  Use loader.exec_module() instead.
-#         """
-#         pass
-#
-#     def __init__(self, *args, **kwargs):  # real signature unknown
-#         pass
-#
-#     __weakref__ = property(lambda self: object(), lambda self, v: None, lambda self: None)  # default
-#     """list of weak references to the object"""
-#
-#     _ORIGIN = 'built-in'
-#     __dict__ = None  # (!) real value is "mappingproxy({'__module__': '_frozen_importlib', '__firstlineno__': 971, '__doc__': 'Meta path import for built-in modules.\\n\\nAll methods are either class or static methods to avoid the need to\\ninstantiate the class.\\n\\n', '_ORIGIN': 'built-in', 'find_spec': <classmethod(<function BuiltinImporter.find_spec at 0x000001835CEB3380>)>, 'create_module': <staticmethod(<function BuiltinImporter.create_module at 0x000001835CEB3420>)>, 'exec_module': <staticmethod(<function BuiltinImporter.exec_module at 0x000001835CEB34C0>)>, 'get_code': <classmethod(<function BuiltinImporter.get_code at 0x000001835CEB3600>)>, 'get_source': <classmethod(<function BuiltinImporter.get_source at 0x000001835CEB3740>)>, 'is_package': <classmethod(<function BuiltinImporter.is_package at 0x000001835CEB3880>)>, 'load_module': <classmethod(<function _load_module_shim at 0x000001835CEB2700>)>, '__static_attributes__': (), '__dict__': <attribute '__dict__' of 'BuiltinImporter' objects>, '__weakref__': <attribute '__weakref__' of 'BuiltinImporter' objects>})"
-#     __firstlineno__ = 971
-#     __static_attributes__ = ()
-
-
-# variables with complex values
-
-__spec__ = None  # (!) real value is "ModuleSpec(name='_random', loader=<class '_frozen_importlib.BuiltinImporter'>, origin='built-in')"
-

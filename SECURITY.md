@@ -91,7 +91,7 @@ ENV PATH="/home/appuser/venv/bin:$PATH"
 RUN pip install --no-cache-dir .
 
 # Copy the application source code
-COPY --chown=appuser:appuser troml_dev_status/ ./troml_dev_status/
+COPY --chown=appuser:appuser xkcd_random/ ./xkcd_random/
 
 # Set the entrypoint to run the tool
 ENTRYPOINT ["troml-dev-status"]
