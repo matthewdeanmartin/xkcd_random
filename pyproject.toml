@@ -100,7 +100,7 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["xkcd-random-four"]
+packages = ["xkcd_random"]
 include = [
     "xkcd_random/**/*.py",
     "xkcd_random/py.typed",
