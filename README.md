@@ -1,8 +1,7 @@
 # xkcd-random
 
-Drop in replacement for random module that forces the core random number function to return 0.4.
-
-(The name xkcd-random is too close to some pre-existing package, so it is now xkcd-random-four)
+Drop in replacement for random module that forces the core random number function to return 4, 0.4, 4/6. The
+specification is a bit ambiguous.
 
 Uses the [xkcd-221 algorithm](https://xkcd.com/221/).
 
@@ -16,7 +15,9 @@ Uses the [xkcd-221 algorithm](https://xkcd.com/221/).
 [![Downloads](https://img.shields.io/pypi/dm/xkcd-random)](https://pypistats.org/packages/xkcd-random-four)
 [![Python Version](https://img.shields.io/pypi/pyversions/xkcd-random-four)
 ![Release](https://img.shields.io/pypi/v/xkcd-random-four)
-](https://pypi.org/project/xkcd-random/)
+](https://pypi.org/project/xkcd-random-four/)
+
+(The name xkcd-random is too close to some pre-existing package, so it is now xkcd-random-four)
 
 ## Installation
 
@@ -100,16 +101,16 @@ This list has an emphasis on "drop in replacements"
 
 ## Project Health & Info
 
-| Metric            | Health                                                                                                                                                                                                            | Metric          | Info                                                                                                                                                                                                              |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tests             | [![Tests](https://github.com/matthewdeanmartin/xkcd_random/actions/workflows/build.yml/badge.svg)](https://github.com/matthewdeanmartin/xkcd_random/actions/workflows/build.yml)                                  | License         | [![License](https://img.shields.io/github/license/matthewdeanmartin/xkcd_random)](https://github.com/matthewdeanmartin/xkcd_random/blob/main/LICENSE.md)                                                        |
+| Metric            | Health                                                                                                                                                                                                            | Metric          | Info                                                                                                                                                                                                                      |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Tests             | [![Tests](https://github.com/matthewdeanmartin/xkcd_random/actions/workflows/build.yml/badge.svg)](https://github.com/matthewdeanmartin/xkcd_random/actions/workflows/build.yml)                                  | License         | [![License](https://img.shields.io/github/license/matthewdeanmartin/xkcd_random)](https://github.com/matthewdeanmartin/xkcd_random/blob/main/LICENSE.md)                                                                  |
 | Coverage          | [![Codecov](https://codecov.io/gh/matthewdeanmartin/xkcd_random/branch/main/graph/badge.svg)](https://codecov.io/gh/matthewdeanmartin/xkcd_random)                                                                | PyPI            | [![PyPI](https://img.shields.io/pypi/v/xkcd-random-four)](https://pypi.org/project/xkcd-random-four/)                                                                                                                     |
 | Lint / Pre-commit | [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/matthewdeanmartin/xkcd_random/main.svg)](https://results.pre-commit.ci/latest/github/matthewdeanmartin/xkcd_random/main)                      | Python Versions | [![Python Version](https://img.shields.io/pypi/pyversions/xkcd-random-four)](https://pypi.org/project/xkcd-random-four/)                                                                                                  |
-| Quality Gate      | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=matthewdeanmartin_xkcd-random\&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=matthewdeanmartin_xkcd-random)    | Docs            | [![Docs](https://readthedocs.org/projects/xkcd-random/badge/?version=latest)](https://xkcd-random.readthedocs.io/en/latest/)                                                                                    |
+| Quality Gate      | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=matthewdeanmartin_xkcd-random\&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=matthewdeanmartin_xkcd-random)    | Docs            | [![Docs](https://readthedocs.org/projects/xkcd-random/badge/?version=latest)](https://xkcd-random.readthedocs.io/en/latest/)                                                                                              |
 | CI Build          | [![Build](https://github.com/matthewdeanmartin/xkcd_random/actions/workflows/build.yml/badge.svg)](https://github.com/matthewdeanmartin/xkcd_random/actions/workflows/build.yml)                                  | Downloads       | [![Downloads](https://static.pepy.tech/personalized-badge/xkcd-random-four?period=total\&units=international_system\&left_color=grey\&right_color=blue\&left_text=Downloads)](https://pepy.tech/project/xkcd-random-four) |
-| Maintainability   | [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=matthewdeanmartin_xkcd-random\&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=matthewdeanmartin_xkcd-random) | Last Commit     | ![Last Commit](https://img.shields.io/github/last-commit/matthewdeanmartin/xkcd_random)                                                                                                                          |
+| Maintainability   | [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=matthewdeanmartin_xkcd-random\&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=matthewdeanmartin_xkcd-random) | Last Commit     | ![Last Commit](https://img.shields.io/github/last-commit/matthewdeanmartin/xkcd_random)                                                                                                                                   |
 
-| Category          | Health                                                                                                                                              
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Open Issues**   | ![GitHub issues](https://img.shields.io/github/issues/matthewdeanmartin/xkcd_random)                                                               |
-| **Stars**         | ![GitHub Repo stars](https://img.shields.io/github/stars/matthewdeanmartin/xkcd_random?style=social)                                               |
+| Category        | Health                                                                                               
+|-----------------|------------------------------------------------------------------------------------------------------|
+| **Open Issues** | ![GitHub issues](https://img.shields.io/github/issues/matthewdeanmartin/xkcd_random)                 |
+| **Stars**       | ![GitHub Repo stars](https://img.shields.io/github/stars/matthewdeanmartin/xkcd_random?style=social) |
