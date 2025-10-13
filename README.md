@@ -114,3 +114,12 @@ This list has an emphasis on "drop in replacements"
 |-----------------|------------------------------------------------------------------------------------------------------|
 | **Open Issues** | ![GitHub issues](https://img.shields.io/github/issues/matthewdeanmartin/xkcd_random)                 |
 | **Stars**       | ![GitHub Repo stars](https://img.shields.io/github/stars/matthewdeanmartin/xkcd_random?style=social) |
+
+
+## Mastodon Rel
+
+<a rel="me" href="https://mastodon.social/@mistersql">Mastodon</a>
+
+[Mastodon](https://mastodon.social/@mistersql){rel=me}
+
+[Mastodon](https://mastodon.social/@mistersql){:rel="me"}
