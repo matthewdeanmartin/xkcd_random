@@ -99,6 +99,10 @@ This list has an emphasis on "drop in replacements"
 - [quantum-random](https://pypi.org/project/quantum-random/)
 - [pycrypto](https://pypi.org/project/pycrypto/)
 
+Honorable mentions
+
+- [uuidv8-xkcd-221](https://github.com/robalexdev/uuidv8-xkcd-221) Generates GUIDs with xkcd-221's algorithm
+
 ## Project Health & Info
 
 | Metric            | Health                                                                                                                                                                                                            | Metric          | Info                                                                                                                                                                                                                      |
