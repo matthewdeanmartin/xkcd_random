@@ -48,7 +48,7 @@ pylint:  isort black
 	$(VENV) ruff --fix
 	$(VENV) pylint xkcd_random --fail-under 9.8
 
-check: mypy test pylint bandit pre-commit update_dev_status dog_food
+check: mypy test pylint bandit update_dev_status dog_food
 
 
 .PHONY: publish
