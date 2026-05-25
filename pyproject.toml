@@ -113,4 +113,6 @@ include = [
 
 # B101:assert_used
 [tool.uv]
+
+[tool.uv.pip]
 universal = true
