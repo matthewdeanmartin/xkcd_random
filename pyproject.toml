@@ -112,3 +112,5 @@ include = [
 ]
 
 # B101:assert_used
+[tool.uv]
+universal = true
