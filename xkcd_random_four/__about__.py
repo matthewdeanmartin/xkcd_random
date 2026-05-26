@@ -7,12 +7,12 @@ __all__ = [
     "__description__",
     "__readme__",
     "__requires_python__",
-    "__status__"
+    "__status__",
 ]
 
 __title__ = "xkcd-random-four"
 __version__ = "0.1.1"
-__credits__ = [{'name': 'Matthew Dean Martin', 'email': 'matthewdeanmartin@gmail.com'}]
+__credits__ = [{"name": "Matthew Dean Martin", "email": "matthewdeanmartin@gmail.com"}]
 __description__ = "Drop in replacment for random that always returns 4 or 4/6"
 __readme__ = "README.md"
 __requires_python__ = ">=3.8"
