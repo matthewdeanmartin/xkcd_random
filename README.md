@@ -127,3 +127,10 @@ Honorable mentions
 [Mastodon](https://mastodon.social/@mistersql){rel=me}
 
 [Mastodon](https://mastodon.social/@mistersql){:rel="me"}
+
+## Project Links
+
+- [GitHub](https://github.com/matthewdeanmartin/xkcd_random)
+- [PyPI](https://pypi.org/project/xkcd-random-four/)
+- [Bug Tracker](https://github.com/matthewdeanmartin/xkcd_random/issues)
+- [Change Log](https://github.com/matthewdeanmartin/xkcd_random/blob/main/CHANGELOG.md)
